@@ -43,7 +43,7 @@ public class OutputClass {
 		
 		for (int i = 0; i < cusInfoArr.size(); i++) {
 			CustomInfo info = cusInfoArr.get(i);
-			switch (info.getTickectkind()) {
+			switch (info.getTicketkind()) {
 			case 1:
 				System.out.print(ConstValueClass.DAY + " ");
 				break;
@@ -87,25 +87,49 @@ public class OutputClass {
 			default:
 				break;
 			}
-			
-			System.out.printf("\n입장료 총액은 %d원 입니다.\n" , totalPrice);
-			System.out.println("=======================================\n");
 		}
+		
+		System.out.printf("\n입장료 총액은 %d원 입니다.\n" , totalPrice);
+		System.out.println("=======================================\n");
 	}
 	
 	public void saveFILE(ArrayList<CustomInfo> cusInfoArr) throws IOException {
-		// 날짜, 권종, 연령구분 , 수량, 가격 , 우대사항 
+		// 날짜, 권종, 연령구분 , 수량, 가격 , 우대사항 ex) 20210415,주간권,어른,1,56000,없음
 		FileWriter fw = new FileWriter(ConstValueClass.PATH, true);
-		String text = "";
+		FileWriter fw1 = new FileWriter(ConstValueClass.PATH1,true);
+		String text = "", text1 = "";
 		for (int i = 0; i < cusInfoArr.size(); i++) {
 			CustomInfo info = cusInfoArr.get(i);
-			text += info.getDate() +"," +info.getTicketname() + "," + info.getAgegroup()
-					+"," + info.getTicketnum() +"," + info.getTicketprice() +"," +info.getDcname() + "\n";
+			text += info.getDate() + "," + info.getTicketname() + "," + info.getAgegroup()
+					+ "," + info.getTicketnum() + "," + info.getTicketprice() + "," + info.getDcname() + "\n";
 			fw.write(text);
 			text = "";
 		}
 		fw.close();
+		
+		for (int i = 0; i < cusInfoArr.size(); i++) {
+			CustomInfo info = cusInfoArr.get(i);
+			text1 += info.getDate() + "," + info.getTicketkind() + "," + info.getAgekind() + "," + info.getTicketnum()
+				+ "," + info.getTicketprice() + "," + info.getDc() + "\n";
+			fw1.write(text1);
+			text1 = "";
+		}
+		fw1.close();
 	
+	}
+	
+	public void printTICKETDATA(int result[][]) {
+		System.out.printf("\n=============== 권종 별 판매현황 ===============\n");
+		System.out.printf("주간권 총 %s매\n", result[0][0]);
+		System.out.printf("유아 %s매, 어린이 %s매, 청소년 %s매, 어른 %s매, 노인 %s매\n",
+				result[0][1], result[0][2], result[0][3], result[0][4], result[0][5]);
+		System.out.printf("주간권 매출 : %s원\n\n", result[0][6]);
+		System.out.printf("야간권 총 %s매\n", result[1][0]);
+		System.out.printf("유아 %s매, 어린이 %s매, 청소년 %s매, 어른 %s매, 노인 %s매\n",
+				result[1][1], result[1][2], result[1][3], result[1][4], result[1][5]);
+		System.out.printf("야간권 매출 : %s원\n", result[1][6]);
+		System.out.printf("---------------------------------------------\n");
+		
 	}
 	
 }

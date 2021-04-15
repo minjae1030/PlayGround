@@ -146,14 +146,16 @@ public class RunClass {
 							ArrayList<CustomInfo> cusInfoArr) {
 		//** ÄÚµå**
 		int agegroup = 0;
+		agegroup = calAgeGroup(age);
 		CustomInfo cusInfo = new CustomInfo();
 		cusInfo.setDate(sdt.format(cal.getTime()));
-		cusInfo.setTickectkind(ticketSelect);
+		cusInfo.setTicketkind(ticketSelect);
 		cusInfo.setAge(age);
 		cusInfo.setTicketnum(orderCount);
 		cusInfo.setTicketprice(priceResult);
 		cusInfo.setDc(dcSelect);
-		agegroup = calAgeGroup(age);
+		cusInfo.setAgekind(agegroup);
+		
 		switch (agegroup) {
 		case 1 :
 			cusInfo.setAgegroup(ConstValueClass.INFANT);

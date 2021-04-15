@@ -2,8 +2,9 @@ package playpark;
 
 public class CustomInfo {
 	private String date ="";
-	private int tickectkind = 0;
+	private int ticketkind = 0;
 	private int age = 0;
+	private int agekind = 0;
 	private int ticketnum = 0;
 	private int ticketprice = 0;
 	private int dc = 0;
@@ -12,6 +13,12 @@ public class CustomInfo {
 	private String dcname = "";
 	
 	
+	public int getAgekind() {
+		return agekind;
+	}
+	public void setAgekind(int agekind) {
+		this.agekind = agekind;
+	}
 	public String getDcname() {
 		return dcname;
 	}
@@ -36,11 +43,11 @@ public class CustomInfo {
 	public void setDate(String date) {
 		this.date = date;
 	}
-	public int getTickectkind() {
-		return tickectkind;
+	public int getTicketkind() {
+		return ticketkind;
 	}
-	public void setTickectkind(int tickectkind) {
-		this.tickectkind = tickectkind;
+	public void setTicketkind(int ticketkind) {
+		this.ticketkind = ticketkind;
 	}
 	public int getAge() {
 		return age;

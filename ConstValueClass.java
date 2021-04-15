@@ -28,5 +28,6 @@ public class ConstValueClass {
 							NONE = "없음", DISABLE = "장애인", YOUGONGJA = "국가유공자", MULTICHILD = "다자녀", PREGNANT = "임산부" ;
 	
 	public static String PATH = "C:\\Users\\kmj\\Desktop\\PlayGround.csv";
+	public static String PATH1 = "C:\\Users\\kmj\\Desktop\\Report.csv";
 	public static ArrayList<CustomInfo> cusInfoArr = new ArrayList<CustomInfo>();
 }
