@@ -37,7 +37,8 @@ public class Main {
 			choice_final = inputClass.checkFINAL();
 		} while (choice_final == 1);
 		result = rc.parseTICKETDATA();
-		outClass.printTICKETDATA(result);
+		outClass.printTICKETDATA2(result); // 권종별 판매현황 
+		rc.parseDAYDATA();
 	}
 	
 	
