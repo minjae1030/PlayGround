@@ -1,9 +1,16 @@
 package playpark;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class RunClass {
+	Calendar cal = null;
+	SimpleDateFormat sdt = null;
+	public RunClass() {
+		cal = Calendar.getInstance();
+		sdt = new SimpleDateFormat("yyyyMMdd");
+	}
 	// **** 나이 계산 ****
 	public int calAge(String customerIDNumber) {
 		int age = 0;
@@ -48,7 +55,7 @@ public class RunClass {
 		} else {
 			age = koreanAge - ConstValueClass.BEFORE_BIRTH;
 		}
-		System.out.println("================" + age);
+		
 		return age;	
 	}
 	// **** 나이에 따른 연령그룹 분류 ****
@@ -63,6 +70,8 @@ public class RunClass {
 			return 4;
 		} else if (age > ConstValueClass.MAX_ADULT) {
 			return 5; 
+		}
+		return 0;
 	}
 	
 	// **** 나이와 주간,야간권에 대한 할인적용 ****
@@ -134,13 +143,26 @@ public class RunClass {
 	}
 	
 	public void saveOrder(int ticketSelect, int age, int orderCount, int priceResult, int dcSelect,
-			int position, int orderList[][]) {
+			int position, int orderList[][], ArrayList<CustomInfo> cusInfoArr) {
+		//** 코드**
+		//ArrayList<CustomInfo> cusInfoArr = new ArrayList<CustomInfo>();
+		CustomInfo cusInfo = new CustomInfo();
+		cusInfo.setDate(sdt.format(cal.getTime()));
+		cusInfo.setTickectkind(ticketSelect);
+		cusInfo.setAge(age);
+		cusInfo.setTicketnum(orderCount);
+		cusInfo.setTicketprice(priceResult);
+		cusInfo.setDc(dcSelect);
+		cusInfoArr.add(cusInfo);
+		
+		//**원래 코드**
 		orderList [position][0] = ticketSelect;
 		orderList [position][1] = age;
 		orderList [position][2] = orderCount;
 		orderList [position][3] = priceResult;
 		orderList [position][4] = dcSelect;
-		Main.position++;
+		Main.count++;
+		
 		
 	}
 	

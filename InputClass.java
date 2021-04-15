@@ -73,6 +73,13 @@ public class InputClass {
 		return dcSelect;
 	}
 	
+	public int checkFINAL() {
+		int choice = 0;
+		System.out.print("계속 진행(1: 새로운 주문, 2: 프로그램 종료) : ");
+		choice = sc.nextInt();
+		return choice;
+	}
+	
 	
 	
 }

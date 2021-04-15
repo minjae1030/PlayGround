@@ -1,8 +1,11 @@
 package playpark;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -49,10 +52,10 @@ public class OutputClass {
 		for (int i = 0; i < position; i++) {
 			switch (orderList[i][0]) {
 			case 1:
-				System.out.print(ConstValueClass.DAY);
+				System.out.print(ConstValueClass.DAY + " ");
 				break;
 			case 2:
-				System.out.print(ConstValueClass.NIGHT);
+				System.out.print(ConstValueClass.NIGHT + " ");
 				break;
 			default:
 				break;
@@ -75,19 +78,19 @@ public class OutputClass {
 			
 			switch(orderList[i][4]) {
 			case 1:
-				System.out.print("우대적용 없음\n");
+				System.out.print("*우대적용 없음\n");
 				break;
 			case 2:
-				System.out.print("장애인 우대적용\n");
+				System.out.print("*장애인 우대적용\n");
 				break;
 			case 3:
-				System.out.print("국가유공자 우대적용\n");
+				System.out.print("*국가유공자 우대적용\n");
 				break;
 			case 4:
-				System.out.print("다자녀 우대적용\n");
+				System.out.print("*다자녀 우대적용\n");
 				break;
 			case 5:
-				System.out.print("임산부 우대적용\n");
+				System.out.print("*임산부 우대적용\n");
 				break;
 			default:
 				break;
@@ -95,11 +98,24 @@ public class OutputClass {
 		} 
 		
 		System.out.printf("\n입장료 총액은 %d원 입니다.\n" , totalPrice);
-		System.out.println("=====================================\n");
+		System.out.println("=======================================\n");
 	}
 	
-	public void saveFILE(int totalPrice, int position, int orderList[][]) throws IOException {
+	public void saveFILE(int totalPrice, int position, int orderList[][], ArrayList<CustomInfo> cusInfoArr) throws IOException {
 		// 날짜, 권종, 연령구분 , 수량, 가격 , 우대사항 
+		FileWriter fw = new FileWriter(ConstValueClass.PATH, true);
+		String text = "";
+		for (int i = 0; i < cusInfoArr.size(); i++) {
+			CustomInfo info = cusInfoArr.get(i);
+			text += info.getDate() +"," +info.getTickectkind() + "," + info.getAge()
+					+"," + info.getTicketnum() +"," + info.getTicketprice() +"," +info.getDc() + "\n";
+			fw.write(text);
+			text = "";
+		}
+		fw.close();
+		
+		// **** 원래 코드 ****
+		/*
 		FileWriter fw = new FileWriter(ConstValueClass.PATH, true);
 		String today = sdt.format(cal.getTime());
 		String temp = "";
@@ -119,6 +135,7 @@ public class OutputClass {
 			fw.write(temp_arr[i]);
 		}
 		fw.close();
+		*/
 	}
 	
 }
