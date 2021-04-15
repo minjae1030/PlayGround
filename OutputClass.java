@@ -1,25 +1,16 @@
 package playpark;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Scanner;
 
 public class OutputClass {
 	public RunClass run = null;
-	public Scanner sc = null;
-	Calendar cal = null;
-	SimpleDateFormat sdt = null;
+	private Scanner sc = null;
 	public OutputClass() throws IOException {
 		run = new RunClass();
-		sc = new Scanner(System.in);
-		cal = Calendar.getInstance();
-		sdt = new SimpleDateFormat("yyyyMMdd");
-		
+		sc = new Scanner(System.in);	
 	}
 	public void printErrorMessage() { // 콘솔 입력 에러 시 에러문구 출력 메소드
 		System.out.println("잘못된 입력입니다! 다시 입력해주세요.");
@@ -45,12 +36,14 @@ public class OutputClass {
 		return choice;
 	}
 	
-	public void orderPrint(int totalPrice, int position, int orderList[][]) {
+	public void orderPrint(int totalPrice, ArrayList<CustomInfo> cusInfoArr) {
 		System.out.print("티켓 발권을 종료합니다. 감사합니다.\n");
 		System.out.println("");
 		System.out.println("=================민재랜드================");
-		for (int i = 0; i < position; i++) {
-			switch (orderList[i][0]) {
+		
+		for (int i = 0; i < cusInfoArr.size(); i++) {
+			CustomInfo info = cusInfoArr.get(i);
+			switch (info.getTickectkind()) {
 			case 1:
 				System.out.print(ConstValueClass.DAY + " ");
 				break;
@@ -60,23 +53,22 @@ public class OutputClass {
 			default:
 				break;
 			}
-			if (run.calAgeGroup(orderList[i][1]) == ConstValueClass.BABY) {
-				System.out.print(ConstValueClass.INFANT + "  ");
-			} else if (run.calAgeGroup(orderList[i][1]) == ConstValueClass.CHILD) {
+			if (run.calAgeGroup(info.getAge()) == ConstValueClass.BABY) {
+				
+			} else if (run.calAgeGroup(info.getAge()) == ConstValueClass.CHILD) {
 				System.out.print(ConstValueClass.CHILDREN + "  ");
-			} else if (run.calAgeGroup(orderList[i][1]) == ConstValueClass.TEEN) {
+			} else if (run.calAgeGroup(info.getAge()) == ConstValueClass.TEEN) {
 				System.out.print(ConstValueClass.JUVENILE + "  ");
-			} else if (run.calAgeGroup(orderList[i][1]) == ConstValueClass.ADULT) {
+			} else if (run.calAgeGroup(info.getAge()) == ConstValueClass.ADULT) {
 				System.out.print(ConstValueClass.ADULT_PEOPLE + "  ");
-			} else if (run.calAgeGroup(orderList[i][1]) == ConstValueClass.OLD) {
+			} else if (run.calAgeGroup(info.getAge()) == ConstValueClass.OLD) {
 				System.out.print(ConstValueClass.OLD_PEOPLE + "  ");
 			} else {
 			}
+			System.out.printf("X %3d", info.getTicketnum());
+			System.out.printf("%8d원    ", info.getTicketprice());
 			
-			System.out.printf("X %3d", orderList[i][2]);
-			System.out.printf("%8d원    ", orderList[i][3]);
-			
-			switch(orderList[i][4]) {
+			switch (info.getDc()) {
 			case 1:
 				System.out.print("*우대적용 없음\n");
 				break;
@@ -95,47 +87,25 @@ public class OutputClass {
 			default:
 				break;
 			}
-		} 
-		
-		System.out.printf("\n입장료 총액은 %d원 입니다.\n" , totalPrice);
-		System.out.println("=======================================\n");
+			
+			System.out.printf("\n입장료 총액은 %d원 입니다.\n" , totalPrice);
+			System.out.println("=======================================\n");
+		}
 	}
 	
-	public void saveFILE(int totalPrice, int position, int orderList[][], ArrayList<CustomInfo> cusInfoArr) throws IOException {
+	public void saveFILE(ArrayList<CustomInfo> cusInfoArr) throws IOException {
 		// 날짜, 권종, 연령구분 , 수량, 가격 , 우대사항 
 		FileWriter fw = new FileWriter(ConstValueClass.PATH, true);
 		String text = "";
 		for (int i = 0; i < cusInfoArr.size(); i++) {
 			CustomInfo info = cusInfoArr.get(i);
-			text += info.getDate() +"," +info.getTickectkind() + "," + info.getAge()
-					+"," + info.getTicketnum() +"," + info.getTicketprice() +"," +info.getDc() + "\n";
+			text += info.getDate() +"," +info.getTicketname() + "," + info.getAgegroup()
+					+"," + info.getTicketnum() +"," + info.getTicketprice() +"," +info.getDcname() + "\n";
 			fw.write(text);
 			text = "";
 		}
 		fw.close();
-		
-		// **** 원래 코드 ****
-		/*
-		FileWriter fw = new FileWriter(ConstValueClass.PATH, true);
-		String today = sdt.format(cal.getTime());
-		String temp = "";
-		String temp_arr [];
-		for (int i = 0; i < position; i++) {
-			for (int j = 0; j < orderList[position].length; j++) {
-				if (j == orderList[position].length - 1) {
-					temp += orderList[i][j] + "\n";
-				} else {
-				temp += orderList[i][j] + ",";
-				}
-			}
-		}
-		temp_arr = temp.split("\n");
-		for (int i = 0; i < temp_arr.length; i++) {
-			temp_arr[i] = today + "," + temp_arr[i]+"\n";
-			fw.write(temp_arr[i]);
-		}
-		fw.close();
-		*/
+	
 	}
 	
 }

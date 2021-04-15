@@ -6,17 +6,19 @@ import java.util.Scanner;
 public class InputClass {
 	private Scanner sc = null;
 	public OutputClass outclass = null;
+
 	public InputClass() throws IOException {
 		sc = new Scanner(System.in);
 		outclass = new OutputClass();
 	}
+
 	// **** 티켓 권종 입력받아 리턴하는 메소드 ****
 	public int inputTicketSelect() { // 권종을 입력받아 선택번호로 Return
 		int ticketselect;
 		System.out.print("권종을 선택하세요.\n1. 주간권\n2. 야간권\n");
 		while (true) {
 			ticketselect = sc.nextInt();
-			if (ticketselect == 1 || ticketselect ==2) {
+			if (ticketselect == 1 || ticketselect == 2) {
 				break;
 			} else {
 				outclass.printErrorMessage();
@@ -24,7 +26,7 @@ public class InputClass {
 		}
 		return ticketselect;
 	}
-	
+
 	// **** 주민번호 입력 메소드 *****
 	public String inputIDnumber() { // 주민번호를 입력받아 String으로 Return
 		String customerIDNumber = "";
@@ -32,8 +34,8 @@ public class InputClass {
 		while (true) {
 			customerIDNumber = sc.next();
 			if ((customerIDNumber.length() >= ConstValueClass.FULL_DIGIT_MIN.length() + 1)
-				  && (customerIDNumber.length() < ConstValueClass.FULL_DIGIT.length() + 1)
-				  && (customerIDNumber.contains("-")== true)) {
+					&& (customerIDNumber.length() < ConstValueClass.FULL_DIGIT.length() + 1)
+					&& (customerIDNumber.contains("-") == true)) {
 				break;
 			} else {
 				outclass.printErrorMessage();
@@ -41,9 +43,9 @@ public class InputClass {
 		}
 		return customerIDNumber;
 	}
-	
+
 	// **** 티켓 주문 개수 입력 메소드 ****
-	public int inputOrderCount() { // 티켓 개수를 입력받아 int로 Return 
+	public int inputOrderCount() { // 티켓 개수를 입력받아 int로 Return
 		int orderCount = 0;
 		System.out.print("몇개를 주문하시겠습니까?(최대 10개)\n");
 		while (true) {
@@ -56,8 +58,8 @@ public class InputClass {
 		}
 		return orderCount;
 	}
-	
-	// **** 우대사항 입력 메소드 **** 
+
+	// **** 우대사항 입력 메소드 ****
 	public int inputDcSelect() { // 우대사항을 선택하여 선택번호를 int로 Return
 		int dcSelect = 0;
 		System.out.print("우대사항을 선택하세요.\n");
@@ -72,14 +74,12 @@ public class InputClass {
 		}
 		return dcSelect;
 	}
-	
+
 	public int checkFINAL() {
 		int choice = 0;
 		System.out.print("계속 진행(1: 새로운 주문, 2: 프로그램 종료) : ");
 		choice = sc.nextInt();
 		return choice;
 	}
-	
-	
-	
+
 }

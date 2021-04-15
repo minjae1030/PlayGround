@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class RunClass {
-	Calendar cal = null;
-	SimpleDateFormat sdt = null;
+	private Calendar cal = null;
+	private SimpleDateFormat sdt = null;
 	public RunClass() {
 		cal = Calendar.getInstance();
 		sdt = new SimpleDateFormat("yyyyMMdd");
@@ -134,18 +134,18 @@ public class RunClass {
 	public int calProcess(String customerIDNumber, int ticketSelect, int dcSelect, int orderCount,
 							int priceResult, int age) {
 		int calPrice = 0;
-		age = calAge(customerIDNumber);
-		calPrice = calPriceProcess(age, ticketSelect);
-		calPrice = calDc(calPrice, dcSelect);
-		priceResult = calPriceResult(calPrice, orderCount);
+		age = calAge(customerIDNumber); // 나이 받아오기
+		calPrice = calPriceProcess(age, ticketSelect); // 나이에 따른 티켓 가격
+		calPrice = calDc(calPrice, dcSelect); // 나이에 따른 티켓 가격과 우대사항에 따른 총 지불 가격
+		priceResult = calPriceResult(calPrice, orderCount); // 총 지불가격 x 티켓 가격으로 최종 지불 가격 
 		
 		return priceResult;
 	}
-	
+	// **** 사용자 정보 저장 ****
 	public void saveOrder(int ticketSelect, int age, int orderCount, int priceResult, int dcSelect,
-			int position, int orderList[][], ArrayList<CustomInfo> cusInfoArr) {
+							ArrayList<CustomInfo> cusInfoArr) {
 		//** 코드**
-		//ArrayList<CustomInfo> cusInfoArr = new ArrayList<CustomInfo>();
+		int agegroup = 0;
 		CustomInfo cusInfo = new CustomInfo();
 		cusInfo.setDate(sdt.format(cal.getTime()));
 		cusInfo.setTickectkind(ticketSelect);
@@ -153,16 +153,60 @@ public class RunClass {
 		cusInfo.setTicketnum(orderCount);
 		cusInfo.setTicketprice(priceResult);
 		cusInfo.setDc(dcSelect);
+		agegroup = calAgeGroup(age);
+		switch (agegroup) {
+		case 1 :
+			cusInfo.setAgegroup(ConstValueClass.INFANT);
+			break;
+		case 2 :
+			cusInfo.setAgegroup(ConstValueClass.CHILDREN);
+			break;
+		case 3 :
+			cusInfo.setAgegroup(ConstValueClass.JUVENILE);
+			break;
+		case 4 :
+			cusInfo.setAgegroup(ConstValueClass.ADULT_PEOPLE);
+			break;
+		case 5 :
+			cusInfo.setAgegroup(ConstValueClass.OLD_PEOPLE);
+			break;
+		default:
+			break;
+		}
+		
+		switch (ticketSelect) {
+		case 1 :
+			cusInfo.setTicketname(ConstValueClass.TICKET_DAY);
+			break;
+		case 2 :
+			cusInfo.setTicketname(ConstValueClass.TICKET_NIGHT);
+			break;
+		default:
+			break;
+		}
+		
+		switch (dcSelect) {
+		case 1 :
+			cusInfo.setDcname(ConstValueClass.NONE);
+			break;
+		case 2 :
+			cusInfo.setDcname(ConstValueClass.DISABLE);
+			break;
+		case 3 :
+			cusInfo.setDcname(ConstValueClass.YOUGONGJA);
+			break;
+		case 4 :
+			cusInfo.setDcname(ConstValueClass.MULTICHILD);
+			break;
+		case 5 :
+			cusInfo.setDcname(ConstValueClass.PREGNANT);
+			break;
+		default :
+			break;
+		}
+		
+		
 		cusInfoArr.add(cusInfo);
-		
-		//**원래 코드**
-		orderList [position][0] = ticketSelect;
-		orderList [position][1] = age;
-		orderList [position][2] = orderCount;
-		orderList [position][3] = priceResult;
-		orderList [position][4] = dcSelect;
-		Main.count++;
-		
 		
 	}
 	

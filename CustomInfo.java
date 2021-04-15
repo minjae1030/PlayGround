@@ -7,6 +7,29 @@ public class CustomInfo {
 	private int ticketnum = 0;
 	private int ticketprice = 0;
 	private int dc = 0;
+	private String agegroup = "";
+	private String ticketname = "";
+	private String dcname = "";
+	
+	
+	public String getDcname() {
+		return dcname;
+	}
+	public void setDcname(String dcname) {
+		this.dcname = dcname;
+	}
+	public String getTicketname() {
+		return ticketname;
+	}
+	public void setTicketname(String ticketname) {
+		this.ticketname = ticketname;
+	}	
+	public String getAgegroup() {
+		return agegroup;
+	}
+	public void setAgegroup(String agegroup) {
+		this.agegroup = agegroup;
+	}
 	public String getDate() {
 		return date;
 	}
