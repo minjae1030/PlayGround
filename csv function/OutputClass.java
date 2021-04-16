@@ -10,7 +10,7 @@ public class OutputClass {
 	
 	public void printTICKETDATA1(String temp) {
 		System.out.printf("\n=============== report.csv ===============\n");
-		System.out.printf("날짜\t\t권종\t연령구분\t수량\t가격\t우대사항\n");
+		System.out.printf("날짜           권종   연령구분 수량     가격  우대사항\n");
 		String line_data[] = temp.split("\n");
 		String line_comma_data[];
 		for (int i = 0; i < line_data.length; i++) {
@@ -65,7 +65,7 @@ public class OutputClass {
 		int count = 0;
 		System.out.printf("\n=============== 일자별 매출 현황 ===============\n");
 		while (iter.hasNext()) {
-			System.out.printf("%s : 총 매출\t%s원",iter.next(), date_price_arr[count]);
+			System.out.printf("%s : 총 매출\t%s원\n",iter.next(), date_price_arr[count]);
 			count++;
 		}
 	}
@@ -86,13 +86,13 @@ public class OutputClass {
 	
 	
 	public void printDAYDATA2(int date_dc_count_arr []) {
-		System.out.printf("\n=============== 우대권 판매 현황 ===============\n");
-		System.out.printf("총 판매 티켓수 : \t%s매\n", date_dc_count_arr[0]);
-		System.out.printf("우대 없음     : \t%s매\n", date_dc_count_arr[1]);
-		System.out.printf("장애인       : \t%s매\n", date_dc_count_arr[2]);
-		System.out.printf("국가유공자    : \t%s매\n", date_dc_count_arr[3]);
-		System.out.printf("다자녀       : \t%s매\n", date_dc_count_arr[4]);
-		System.out.printf("임산부       : \t%s매\n", date_dc_count_arr[5]);
+		System.out.printf("\n============= 우대권 판매 현황 =============\n");
+		System.out.printf("총 판매 티켓수 :     %s매\n", date_dc_count_arr[0]);
+		System.out.printf("우대 없음      :     %s매\n", date_dc_count_arr[1]);
+		System.out.printf("장애인         :     %s매\n", date_dc_count_arr[2]);
+		System.out.printf("국가유공자     :     %s매\n", date_dc_count_arr[3]);
+		System.out.printf("다자녀         :     %s매\n", date_dc_count_arr[4]);
+		System.out.printf("임산부         :     %s매\n", date_dc_count_arr[5]);
 		System.out.printf("\n===========================================\n");
 		
 	}

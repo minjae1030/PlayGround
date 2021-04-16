@@ -41,7 +41,7 @@ public class OutputClass {
 	public void orderPrint(int totalPrice, ArrayList<CustomInfo> cusInfoArr) {
 		System.out.print("티켓 발권을 종료합니다. 감사합니다.\n");
 		System.out.println("");
-		System.out.println("=================민재랜드================");
+		System.out.println("===================민재랜드==================");
 		
 		for (int i = 0; i < cusInfoArr.size(); i++) {
 			CustomInfo info = cusInfoArr.get(i);
@@ -92,7 +92,7 @@ public class OutputClass {
 		}
 		
 		System.out.printf("\n입장료 총액은 %d원 입니다.\n" , totalPrice);
-		System.out.println("=======================================\n");
+		System.out.println("===========================================\n");
 	}
 	
 	public void saveFILE(ArrayList<CustomInfo> cusInfoArr) throws IOException {
