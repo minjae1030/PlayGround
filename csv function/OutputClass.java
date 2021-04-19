@@ -39,7 +39,7 @@ public class OutputClass {
 	
 	public void saveTICKETDATA(int result[][]) throws IOException {
 		//구분,주간권,야간권
-		FileWriter fw1 = new FileWriter(ConstValueClass.PATH3, true);
+		FileWriter fw1 = new FileWriter(ConstValueClass.PATH3);
 		String text = "";
 		int baby_day = result[0][1], baby_night = result[1][1];
 		int child_day = result[0][2] , child_night = result[1][2];
@@ -48,7 +48,8 @@ public class OutputClass {
 		int old_day = result[0][5] , old_night = result[1][5];
 		int day_ret = result[0][0], night_ret = result[1][0];
 		int day_sell = result[0][6], night_sell = result[1][6];
-		text = ConstValueClass.INFANT + "," + baby_day + "," + baby_night + "\n" +
+		text = 	ConstValueClass.TICKET_SELECT + "," + ConstValueClass.TICKET_DAY + "," + ConstValueClass.TICKET_NIGHT + "\n" +
+				ConstValueClass.INFANT + "," + baby_day + "," + baby_night + "\n" +
 				ConstValueClass.CHILDREN + "," +child_day + "," + child_night + "\n" +
 				ConstValueClass.JUVENILE + "," + teen_day + "," + teen_night + "\n" +
 				ConstValueClass.ADULT_PEOPLE + "," + adult_day + "," + adult_night + "\n" +
@@ -69,21 +70,21 @@ public class OutputClass {
 			count++;
 		}
 	}
+	
 	public void saveDAYDATA1(HashSet<String> sellday, int date_price_arr[]) throws IOException { // 일자별  : 총 매출 -> CSV저장
-		FileWriter fw = new FileWriter(ConstValueClass.PATH2, true);
+		FileWriter fw = new FileWriter(ConstValueClass.PATH2);
 		Iterator<String> iter = sellday.iterator();
 		int count = 0;
 		String date = "";
 		String line = "";
 		while (iter.hasNext()) {
 			date = iter.next();
-			line = date + "," + date_price_arr[count] + "\n";
+			line = ConstValueClass.SELL_DAY + "," + ConstValueClass.SELL_AMOUNT +"\n" +	date + "," + date_price_arr[count] + "\n";
 			fw.write(line);
 			count++;
 		}
 		fw.close();
 	}
-	
 	
 	public void printDAYDATA2(int date_dc_count_arr []) {
 		System.out.printf("\n============= 우대권 판매 현황 =============\n");
