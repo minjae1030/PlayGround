@@ -5,4 +5,4 @@
 
   * readCSV ( 놀이동산 티케팅 분석 프로그램 )
     - Read CSV file -> Parse data (day , kind of ticket , kind of DC)
-    - ConstValueClass.java의 PATH1의 경로를 advance에서 저장 된 playground.csv의 경로를 넣어주세요.
+    - ConstValueClass.java의 PATH1의 경로를 advance에서 저장 된 Report.csv의 경로를 넣어주세요.
