@@ -26,7 +26,7 @@ public class Main {
 				total_price += priceResult;
 				runClass.saveOrder(ticketSelect, age, orderCount, priceResult, dcSelect, ConstValueClass.cusInfoArr);
 				outClass.printPrice(priceResult);
-				choice = outClass.checkContinue();
+				choice = inputClass.checkContinue();
 				if (choice == ConstValueClass.CHOICE_EXIT) {
 					break;
 				}

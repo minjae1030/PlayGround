@@ -14,30 +14,18 @@ public class OutputClass {
 		run = new RunClass();
 		sc = new Scanner(System.in);	
 	}
-	public void printErrorMessage() { // 콘솔 입력 에러 시 에러문구 출력 메소드
+	// **** 콘솔 입력 에러 시 에러문구 출력 메소드 ****
+	public void printErrorMessage() { 
 		System.out.println("잘못된 입력입니다! 다시 입력해주세요.");
 	}
 	
+	//  **** 가격 출력 메소드 ****
 	public void printPrice(int priceResult) {
 		System.out.printf("가격은 %d원 입니다.\n" , priceResult );
 		System.out.println("감사합니다.\n");
 	}
 	
-	public int checkContinue() {
-		int choice = 0;
-		System.out.println("계속 발권 하시겠습니까?");
-		System.out.println("1. 티켓 발권\n2. 종료");
-		while (true) {
-			choice = sc.nextInt();
-			if (choice == ConstValueClass.CHOICE_CONTINUE || choice == ConstValueClass.CHOICE_EXIT) {
-				break;
-			} else {
-				printErrorMessage();
-			}
-		}
-		return choice;
-	}
-	
+	// **** 주문사항 출력 메소드 ****
 	public void orderPrint(int totalPrice, ArrayList<CustomInfo> cusInfoArr) {
 		System.out.print("티켓 발권을 종료합니다. 감사합니다.\n");
 		System.out.println("");
@@ -95,6 +83,7 @@ public class OutputClass {
 		System.out.println("===========================================\n");
 	}
 	
+	// **** CSV 저장 메소드 ****
 	public void saveFILE(ArrayList<CustomInfo> cusInfoArr) throws IOException {
 		// 날짜, 권종, 연령구분 , 수량, 가격 , 우대사항 ex) 20210415,주간권,어른,1,56000,없음
 		FileWriter fw = new FileWriter(ConstValueClass.PATH, true);

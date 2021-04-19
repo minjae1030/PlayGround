@@ -74,7 +74,23 @@ public class InputClass {
 		}
 		return dcSelect;
 	}
-
+	
+	// **** 계속 발권하시겠습니까 메소드 ****
+	public int checkContinue() {
+		int choice = 0;
+		System.out.println("계속 발권 하시겠습니까?");
+		System.out.println("1. 티켓 발권\n2. 종료");
+		while (true) {
+			choice = sc.nextInt();
+			if (choice == ConstValueClass.CHOICE_CONTINUE || choice == ConstValueClass.CHOICE_EXIT) {
+				break;
+			} else {
+				outclass.printErrorMessage();
+			}
+		}
+		return choice;
+	}
+	// **** 마지막 발권 여부 메소드 ****
 	public int checkFINAL() {
 		int choice = 0;
 		System.out.print("계속 진행(1: 새로운 주문, 2: 프로그램 종료) : ");

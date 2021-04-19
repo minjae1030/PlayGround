@@ -2,12 +2,12 @@ package playpark;
 
 public class CustomInfo {
 	private String date ="";
-	private int ticketkind = 0;
-	private int age = 0;
-	private int agekind = 0;
-	private int ticketnum = 0;
-	private int ticketprice = 0;
-	private int dc = 0;
+	private int ticketkind = 0; 
+	private int age = 0; 
+	private int agekind = 0; 
+	private int ticketnum = 0; 
+	private int ticketprice = 0; 
+	private int dc = 0; // 
 	private String agegroup = "";
 	private String ticketname = "";
 	private String dcname = "";
