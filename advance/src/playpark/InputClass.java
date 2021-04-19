@@ -12,10 +12,10 @@ public class InputClass {
 		outclass = new OutputClass();
 	}
 
-	// **** Æ¼ÄÏ ±ÇÁ¾ ÀÔ·Â¹Þ¾Æ ¸®ÅÏÇÏ´Â ¸Þ¼Òµå ****
-	public int inputTicketSelect() { // ±ÇÁ¾À» ÀÔ·Â¹Þ¾Æ ¼±ÅÃ¹øÈ£·Î Return
+	// **** í‹°ì¼“ ê¶Œì¢… ìž…ë ¥ë°›ì•„ ë¦¬í„´í•˜ëŠ” ë©”ì†Œë“œ ****
+	public int inputTicketSelect() { // ê¶Œì¢…ì„ ìž…ë ¥ë°›ì•„ ì„ íƒë²ˆí˜¸ë¡œ Return
 		int ticketselect;
-		System.out.print("±ÇÁ¾À» ¼±ÅÃÇÏ¼¼¿ä.\n1. ÁÖ°£±Ç\n2. ¾ß°£±Ç\n");
+		System.out.print("ê¶Œì¢…ì„ ì„ íƒí•˜ì„¸ìš”.\n1. ì£¼ê°„ê¶Œ\n2. ì•¼ê°„ê¶Œ\n");
 		while (true) {
 			ticketselect = sc.nextInt();
 			if (ticketselect == 1 || ticketselect == 2) {
@@ -27,10 +27,10 @@ public class InputClass {
 		return ticketselect;
 	}
 
-	// **** ÁÖ¹Î¹øÈ£ ÀÔ·Â ¸Þ¼Òµå *****
-	public String inputIDnumber() { // ÁÖ¹Î¹øÈ£¸¦ ÀÔ·Â¹Þ¾Æ StringÀ¸·Î Return
+	// **** ì£¼ë¯¼ë²ˆí˜¸ ìž…ë ¥ ë©”ì†Œë“œ *****
+	public String inputIDnumber() { // ì£¼ë¯¼ë²ˆí˜¸ë¥¼ ìž…ë ¥ë°›ì•„ Stringìœ¼ë¡œ Return
 		String customerIDNumber = "";
-		System.out.print("ÁÖ¹Îµî·Ï¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.(xxxxxx-xxxxxxx)\n");
+		System.out.print("ì£¼ë¯¼ë“±ë¡ë²ˆí˜¸ë¥¼ ìž…ë ¥í•˜ì„¸ìš”.(xxxxxx-xxxxxxx)\n");
 		while (true) {
 			customerIDNumber = sc.next();
 			if ((customerIDNumber.length() >= ConstValueClass.FULL_DIGIT_MIN.length() + 1)
@@ -44,10 +44,10 @@ public class InputClass {
 		return customerIDNumber;
 	}
 
-	// **** Æ¼ÄÏ ÁÖ¹® °³¼ö ÀÔ·Â ¸Þ¼Òµå ****
-	public int inputOrderCount() { // Æ¼ÄÏ °³¼ö¸¦ ÀÔ·Â¹Þ¾Æ int·Î Return
+	// **** í‹°ì¼“ ì£¼ë¬¸ ê°œìˆ˜ ìž…ë ¥ ë©”ì†Œë“œ ****
+	public int inputOrderCount() { // í‹°ì¼“ ê°œìˆ˜ë¥¼ ìž…ë ¥ë°›ì•„ intë¡œ Return
 		int orderCount = 0;
-		System.out.print("¸î°³¸¦ ÁÖ¹®ÇÏ½Ã°Ú½À´Ï±î?(ÃÖ´ë 10°³)\n");
+		System.out.print("ëª‡ê°œë¥¼ ì£¼ë¬¸í•˜ì‹œê² ìŠµë‹ˆê¹Œ?(ìµœëŒ€ 10ê°œ)\n");
 		while (true) {
 			orderCount = sc.nextInt();
 			if ((orderCount <= ConstValueClass.MAX_COUNT) && (orderCount >= ConstValueClass.MIN_COUNT)) {
@@ -59,11 +59,11 @@ public class InputClass {
 		return orderCount;
 	}
 
-	// **** ¿ì´ë»çÇ× ÀÔ·Â ¸Þ¼Òµå ****
-	public int inputDcSelect() { // ¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¿© ¼±ÅÃ¹øÈ£¸¦ int·Î Return
+	// **** ìš°ëŒ€ì‚¬í•­ ìž…ë ¥ ë©”ì†Œë“œ ****
+	public int inputDcSelect() { // ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì—¬ ì„ íƒë²ˆí˜¸ë¥¼ intë¡œ Return
 		int dcSelect = 0;
-		System.out.print("¿ì´ë»çÇ×À» ¼±ÅÃÇÏ¼¼¿ä.\n");
-		System.out.println("1. ¾øÀ½\n2. Àå¾ÖÀÎ\n3. ±¹°¡À¯°øÀÚ\n4. ´ÙÀÚ³à \n5. ÀÓ»êºÎ");
+		System.out.print("ìš°ëŒ€ì‚¬í•­ì„ ì„ íƒí•˜ì„¸ìš”.\n");
+		System.out.println("1. ì—†ìŒ\n2. ìž¥ì• ì¸\n3. êµ­ê°€ìœ ê³µìž\n4. ë‹¤ìžë…€ \n5. ìž„ì‚°ë¶€");
 		while (true) {
 			dcSelect = sc.nextInt();
 			if ((dcSelect >= 1) && (dcSelect <= 5)) {
@@ -75,11 +75,11 @@ public class InputClass {
 		return dcSelect;
 	}
 	
-	// **** °è¼Ó ¹ß±ÇÇÏ½Ã°Ú½À´Ï±î ¸Þ¼Òµå ****
+	// **** ê³„ì† ë°œê¶Œí•˜ì‹œê² ìŠµë‹ˆê¹Œ ë©”ì†Œë“œ ****
 	public int checkContinue() {
 		int choice = 0;
-		System.out.println("°è¼Ó ¹ß±Ç ÇÏ½Ã°Ú½À´Ï±î?");
-		System.out.println("1. Æ¼ÄÏ ¹ß±Ç\n2. Á¾·á");
+		System.out.println("ê³„ì† ë°œê¶Œ í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
+		System.out.println("1. í‹°ì¼“ ë°œê¶Œ\n2. ì¢…ë£Œ");
 		while (true) {
 			choice = sc.nextInt();
 			if (choice == ConstValueClass.CHOICE_CONTINUE || choice == ConstValueClass.CHOICE_EXIT) {
@@ -90,10 +90,10 @@ public class InputClass {
 		}
 		return choice;
 	}
-	// **** ¸¶Áö¸· ¹ß±Ç ¿©ºÎ ¸Þ¼Òµå ****
+	// **** ë§ˆì§€ë§‰ ë°œê¶Œ ì—¬ë¶€ ë©”ì†Œë“œ ****
 	public int checkFINAL() {
 		int choice = 0;
-		System.out.print("°è¼Ó ÁøÇà(1: »õ·Î¿î ÁÖ¹®, 2: ÇÁ·Î±×·¥ Á¾·á) : ");
+		System.out.print("ê³„ì† ì§„í–‰(1: ìƒˆë¡œìš´ ì£¼ë¬¸, 2: í”„ë¡œê·¸ëž¨ ì¢…ë£Œ) : ");
 		choice = sc.nextInt();
 		return choice;
 	}

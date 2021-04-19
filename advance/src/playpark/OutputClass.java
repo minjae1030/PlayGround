@@ -14,22 +14,22 @@ public class OutputClass {
 		run = new RunClass();
 		sc = new Scanner(System.in);	
 	}
-	// **** ÄÜ¼Ö ÀÔ·Â ¿¡·¯ ½Ã ¿¡·¯¹®±¸ Ãâ·Â ¸Ş¼Òµå ****
+	// **** ì½˜ì†” ì…ë ¥ ì—ëŸ¬ ì‹œ ì—ëŸ¬ë¬¸êµ¬ ì¶œë ¥ ë©”ì†Œë“œ ****
 	public void printErrorMessage() { 
-		System.out.println("Àß¸øµÈ ÀÔ·ÂÀÔ´Ï´Ù! ´Ù½Ã ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		System.out.println("ì˜ëª»ëœ ì…ë ¥ì…ë‹ˆë‹¤! ë‹¤ì‹œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 	}
 	
-	//  **** °¡°İ Ãâ·Â ¸Ş¼Òµå ****
+	//  **** ê°€ê²© ì¶œë ¥ ë©”ì†Œë“œ ****
 	public void printPrice(int priceResult) {
-		System.out.printf("°¡°İÀº %d¿ø ÀÔ´Ï´Ù.\n" , priceResult );
-		System.out.println("°¨»çÇÕ´Ï´Ù.\n");
+		System.out.printf("ê°€ê²©ì€ %dì› ì…ë‹ˆë‹¤.\n" , priceResult );
+		System.out.println("ê°ì‚¬í•©ë‹ˆë‹¤.\n");
 	}
 	
-	// **** ÁÖ¹®»çÇ× Ãâ·Â ¸Ş¼Òµå ****
+	// **** ì£¼ë¬¸ì‚¬í•­ ì¶œë ¥ ë©”ì†Œë“œ ****
 	public void orderPrint(int totalPrice, ArrayList<CustomInfo> cusInfoArr) {
-		System.out.print("Æ¼ÄÏ ¹ß±ÇÀ» Á¾·áÇÕ´Ï´Ù. °¨»çÇÕ´Ï´Ù.\n");
+		System.out.print("í‹°ì¼“ ë°œê¶Œì„ ì¢…ë£Œí•©ë‹ˆë‹¤. ê°ì‚¬í•©ë‹ˆë‹¤.\n");
 		System.out.println("");
-		System.out.println("===================¹ÎÀç·£µå==================");
+		System.out.println("===================ë¯¼ì¬ëœë“œ==================");
 		
 		for (int i = 0; i < cusInfoArr.size(); i++) {
 			CustomInfo info = cusInfoArr.get(i);
@@ -56,36 +56,36 @@ public class OutputClass {
 			} else {
 			}
 			System.out.printf("X %3d", info.getTicketnum());
-			System.out.printf("%8d¿ø    ", info.getTicketprice());
+			System.out.printf("%8dì›    ", info.getTicketprice());
 			
 			switch (info.getDc()) {
 			case 1:
-				System.out.print("*¿ì´ëÀû¿ë ¾øÀ½\n");
+				System.out.print("*ìš°ëŒ€ì ìš© ì—†ìŒ\n");
 				break;
 			case 2:
-				System.out.print("*Àå¾ÖÀÎ ¿ì´ëÀû¿ë\n");
+				System.out.print("*ì¥ì• ì¸ ìš°ëŒ€ì ìš©\n");
 				break;
 			case 3:
-				System.out.print("*±¹°¡À¯°øÀÚ ¿ì´ëÀû¿ë\n");
+				System.out.print("*êµ­ê°€ìœ ê³µì ìš°ëŒ€ì ìš©\n");
 				break;
 			case 4:
-				System.out.print("*´ÙÀÚ³à ¿ì´ëÀû¿ë\n");
+				System.out.print("*ë‹¤ìë…€ ìš°ëŒ€ì ìš©\n");
 				break;
 			case 5:
-				System.out.print("*ÀÓ»êºÎ ¿ì´ëÀû¿ë\n");
+				System.out.print("*ì„ì‚°ë¶€ ìš°ëŒ€ì ìš©\n");
 				break;
 			default:
 				break;
 			}
 		}
 		
-		System.out.printf("\nÀÔÀå·á ÃÑ¾×Àº %d¿ø ÀÔ´Ï´Ù.\n" , totalPrice);
+		System.out.printf("\nì…ì¥ë£Œ ì´ì•¡ì€ %dì› ì…ë‹ˆë‹¤.\n" , totalPrice);
 		System.out.println("===========================================\n");
 	}
 	
-	// **** CSV ÀúÀå ¸Ş¼Òµå ****
+	// **** CSV ì €ì¥ ë©”ì†Œë“œ ****
 	public void saveFILE(ArrayList<CustomInfo> cusInfoArr) throws IOException {
-		// ³¯Â¥, ±ÇÁ¾, ¿¬·É±¸ºĞ , ¼ö·®, °¡°İ , ¿ì´ë»çÇ× ex) 20210415,ÁÖ°£±Ç,¾î¸¥,1,56000,¾øÀ½
+		// ë‚ ì§œ, ê¶Œì¢…, ì—°ë ¹êµ¬ë¶„ , ìˆ˜ëŸ‰, ê°€ê²© , ìš°ëŒ€ì‚¬í•­ ex) 20210415,ì£¼ê°„ê¶Œ,ì–´ë¥¸,1,56000,ì—†ìŒ
 		FileWriter fw = new FileWriter(ConstValueClass.PATH, true);
 		FileWriter fw1 = new FileWriter(ConstValueClass.PATH1,true);
 		String text = "", text1 = "";

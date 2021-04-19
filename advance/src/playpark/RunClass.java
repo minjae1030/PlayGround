@@ -11,7 +11,7 @@ public class RunClass {
 		cal = Calendar.getInstance();
 		sdt = new SimpleDateFormat("yyyyMMdd");
 	}
-	// **** ³ªÀÌ °è»ê ****
+	// **** ë‚˜ì´ ê³„ì‚° ****
 	public int calAge(String customerIDNumber) {
 		int age = 0;
 		Calendar cal = Calendar.getInstance();
@@ -21,29 +21,29 @@ public class RunClass {
 		String [] ID_arr = customerIDNumber.split("-");
 		String temp = "1";
 		String ID_first_str = temp + ID_arr[0]; 
-		int ID_first = Integer.parseInt(ID_first_str); // 1+ÁÖ¹Î¹øÈ£ ¾ÕÀÚ¸® 
-		int ID_last = Integer.parseInt(ID_arr[1]); // ÁÖ¹Î¹øÈ£ µŞÀÚ¸®
+		int ID_first = Integer.parseInt(ID_first_str); // 1+ì£¼ë¯¼ë²ˆí˜¸ ì•ìë¦¬ 
+		int ID_last = Integer.parseInt(ID_arr[1]); // ì£¼ë¯¼ë²ˆí˜¸ ë’·ìë¦¬
 		int type = 0, BIRTH_mon_day = 0, customerYear = 0, customerMonth = 0, customerDay = 0;
 		int koreanAge = 0, currentYear = 0, currentMonth = 0, currentDay;
 		String currentYear_str, currentMonth_str, currentDay_str;
 		
-		type = ID_last / ConstValueClass.SEVEN_DIGIT; // ÁÖ¹ÎµŞÀÚ¸® Ã¹¹øÈ£
-		BIRTH_mon_day = ID_first % ConstValueClass.FIVE_DIGIT; // »ı³â¿ùÀÏ
-		customerDay = BIRTH_mon_day % ConstValueClass.TWO_DIGIT; // ÀÏ
-		customerMonth = BIRTH_mon_day / ConstValueClass.TWO_DIGIT; // ¿ù
-		customerYear = (ID_first / ConstValueClass.FIVE_DIGIT) % ConstValueClass.TWO_DIGIT; // »ı³â
+		type = ID_last / ConstValueClass.SEVEN_DIGIT; // ì£¼ë¯¼ë’·ìë¦¬ ì²«ë²ˆí˜¸
+		BIRTH_mon_day = ID_first % ConstValueClass.FIVE_DIGIT; // ìƒë…„ì›”ì¼
+		customerDay = BIRTH_mon_day % ConstValueClass.TWO_DIGIT; // ì¼
+		customerMonth = BIRTH_mon_day / ConstValueClass.TWO_DIGIT; // ì›”
+		customerYear = (ID_first / ConstValueClass.FIVE_DIGIT) % ConstValueClass.TWO_DIGIT; // ìƒë…„
 		
-		if ((type == ConstValueClass.MALE_NEW) || (type == ConstValueClass.FEMALE_NEW)) { // 2000³â»ı ÀÌÈÄÀÏ °æ¿ì
-			customerYear += ConstValueClass.NEW_GENERATION; // »ı³â¿¡ 2000À» ´õÇÏ¿© 20xx ·Î º¯°æ
+		if ((type == ConstValueClass.MALE_NEW) || (type == ConstValueClass.FEMALE_NEW)) { // 2000ë…„ìƒ ì´í›„ì¼ ê²½ìš°
+			customerYear += ConstValueClass.NEW_GENERATION; // ìƒë…„ì— 2000ì„ ë”í•˜ì—¬ 20xx ë¡œ ë³€ê²½
 		} else {
-			customerYear += ConstValueClass.OLD_GENERATION; // »ı³â¿¡ 1900À» ´õÇÏ¿© 19xx ·Î º¯°æ
+			customerYear += ConstValueClass.OLD_GENERATION; // ìƒë…„ì— 1900ì„ ë”í•˜ì—¬ 19xx ë¡œ ë³€ê²½
 		}
 		
 		currentYear_str = time.format(cal.getTime());
 		currentYear = Integer.parseInt(currentYear_str);
-		koreanAge = (currentYear - customerYear) + 1; // (ÇöÀç³âµµ - °í°´»ı³â) + 1
+		koreanAge = (currentYear - customerYear) + 1; // (í˜„ì¬ë…„ë„ - ê³ ê°ìƒë…„) + 1
 		
-		//**** ¸¸ ³ªÀÌ °è»ê ****
+		//**** ë§Œ ë‚˜ì´ ê³„ì‚° ****
 		currentMonth_str = month.format(cal.getTime());
 		currentMonth = Integer.parseInt(currentMonth_str);
 		
@@ -58,7 +58,7 @@ public class RunClass {
 		
 		return age;	
 	}
-	// **** ³ªÀÌ¿¡ µû¸¥ ¿¬·É±×·ì ºĞ·ù ****
+	// **** ë‚˜ì´ì— ë”°ë¥¸ ì—°ë ¹ê·¸ë£¹ ë¶„ë¥˜ ****
 	public int calAgeGroup(int age) {
 		if (age < ConstValueClass.MIN_CHILD) {
 			return 1;
@@ -74,7 +74,7 @@ public class RunClass {
 		return 0;
 	}
 	
-	// **** ³ªÀÌ¿Í ÁÖ°£,¾ß°£±Ç¿¡ ´ëÇÑ ÇÒÀÎÀû¿ë ****
+	// **** ë‚˜ì´ì™€ ì£¼ê°„,ì•¼ê°„ê¶Œì— ëŒ€í•œ í• ì¸ì ìš© ****
 	public int calPriceProcess(int age, int ticketSelect) {
 		int calPrice = 0;
 		if (calAgeGroup(age) == ConstValueClass.BABY) {
@@ -103,7 +103,7 @@ public class RunClass {
 		return calPrice;
 	}
 	
-	// **** ¿ì´ë»çÇ×¿¡ µû¸¥ ÇÒÀÎÀû¿ë ****
+	// **** ìš°ëŒ€ì‚¬í•­ì— ë”°ë¥¸ í• ì¸ì ìš© ****
 	public int calDc(int calPrice, int dcSelect) {
 		switch (dcSelect) {
 		case 2:
@@ -125,26 +125,26 @@ public class RunClass {
 		
 	}
 	
-	// **** Æ¼ÄÏ°³¼ö¿¡ µû¸¥ °¡°İÃÑÇÕ ****
+	// **** í‹°ì¼“ê°œìˆ˜ì— ë”°ë¥¸ ê°€ê²©ì´í•© ****
 	public int calPriceResult(int calPrice, int orderCount) {
 		return calPrice * orderCount;
 	}
 	
-	// **** ÀÔ·Â°ª¿¡ ´ëÇÑ ÃÑ °¡°İÃâ·Â ****
+	// **** ì…ë ¥ê°’ì— ëŒ€í•œ ì´ ê°€ê²©ì¶œë ¥ ****
 	public int calProcess(String customerIDNumber, int ticketSelect, int dcSelect, int orderCount,
 							int priceResult, int age) {
 		int calPrice = 0;
-		age = calAge(customerIDNumber); // ³ªÀÌ ¹Ş¾Æ¿À±â
-		calPrice = calPriceProcess(age, ticketSelect); // ³ªÀÌ¿¡ µû¸¥ Æ¼ÄÏ °¡°İ
-		calPrice = calDc(calPrice, dcSelect); // ³ªÀÌ¿¡ µû¸¥ Æ¼ÄÏ °¡°İ°ú ¿ì´ë»çÇ×¿¡ µû¸¥ ÃÑ ÁöºÒ °¡°İ
-		priceResult = calPriceResult(calPrice, orderCount); // ÃÑ ÁöºÒ°¡°İ x Æ¼ÄÏ °¡°İÀ¸·Î ÃÖÁ¾ ÁöºÒ °¡°İ 
+		age = calAge(customerIDNumber); // ë‚˜ì´ ë°›ì•„ì˜¤ê¸°
+		calPrice = calPriceProcess(age, ticketSelect); // ë‚˜ì´ì— ë”°ë¥¸ í‹°ì¼“ ê°€ê²©
+		calPrice = calDc(calPrice, dcSelect); // ë‚˜ì´ì— ë”°ë¥¸ í‹°ì¼“ ê°€ê²©ê³¼ ìš°ëŒ€ì‚¬í•­ì— ë”°ë¥¸ ì´ ì§€ë¶ˆ ê°€ê²©
+		priceResult = calPriceResult(calPrice, orderCount); // ì´ ì§€ë¶ˆê°€ê²© x í‹°ì¼“ ê°€ê²©ìœ¼ë¡œ ìµœì¢… ì§€ë¶ˆ ê°€ê²© 
 		
 		return priceResult;
 	}
-	// **** »ç¿ëÀÚ Á¤º¸ ÀúÀå ****
+	// **** ì‚¬ìš©ì ì •ë³´ ì €ì¥ ****
 	public void saveOrder(int ticketSelect, int age, int orderCount, int priceResult, int dcSelect,
 							ArrayList<CustomInfo> cusInfoArr) {
-		//** ÄÚµå**
+		//** ì½”ë“œ**
 		int agegroup = 0;
 		agegroup = calAgeGroup(age);
 		CustomInfo cusInfo = new CustomInfo();

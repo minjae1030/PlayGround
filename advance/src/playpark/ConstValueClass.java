@@ -23,9 +23,9 @@ public class ConstValueClass {
 	
 	public static int MAX_COUNT = 10, MIN_COUNT = 1;
 	
-	public static String DAY = "ÁÖ°£±Ç", NIGHT = "¾ß°£±Ç", INFANT = "À¯¾Æ", CHILDREN = "¾î¸°ÀÌ", JUVENILE = "Ã»¼Ò³â",
-							ADULT_PEOPLE = "¾î¸¥", OLD_PEOPLE = "³ëÀÎ", TICKET_DAY = "ÁÖ°£±Ç", TICKET_NIGHT = "¾ß°£±Ç",
-							NONE = "¾øÀ½", DISABLE = "Àå¾ÖÀÎ", YOUGONGJA = "±¹°¡À¯°øÀÚ", MULTICHILD = "´ÙÀÚ³à", PREGNANT = "ÀÓ»êºÎ" ;
+	public static String DAY = "ì£¼ê°„ê¶Œ", NIGHT = "ì•¼ê°„ê¶Œ", INFANT = "ìœ ì•„", CHILDREN = "ì–´ë¦°ì´", JUVENILE = "ì²­ì†Œë…„",
+							ADULT_PEOPLE = "ì–´ë¥¸", OLD_PEOPLE = "ë…¸ì¸", TICKET_DAY = "ì£¼ê°„ê¶Œ", TICKET_NIGHT = "ì•¼ê°„ê¶Œ",
+							NONE = "ì—†ìŒ", DISABLE = "ìž¥ì• ì¸", YOUGONGJA = "êµ­ê°€ìœ ê³µìž", MULTICHILD = "ë‹¤ìžë…€", PREGNANT = "ìž„ì‚°ë¶€" ;
 	
 	public static String PATH = "PlayGround.csv";
 	public static String PATH1 = "Report.csv";
