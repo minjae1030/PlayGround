@@ -27,7 +27,7 @@ public class ConstValueClass {
 							ADULT_PEOPLE = "어른", OLD_PEOPLE = "노인", TICKET_DAY = "주간권", TICKET_NIGHT = "야간권",
 							NONE = "없음", DISABLE = "장애인", YOUGONGJA = "국가유공자", MULTICHILD = "다자녀", PREGNANT = "임산부" ;
 	
-	public static String PATH = "C:\\Users\\kmj\\Desktop\\PlayGround.csv";
-	public static String PATH1 = "C:\\Users\\kmj\\Desktop\\Report.csv";
+	public static String PATH = "PlayGround.csv";
+	public static String PATH1 = "Report.csv";
 	public static ArrayList<CustomInfo> cusInfoArr = new ArrayList<CustomInfo>();
 }
