@@ -10,7 +10,7 @@ public class OutputClass {
 	
 	public void printTICKETDATA1(String temp) {
 		System.out.printf("\n=============== report.csv ===============\n");
-		System.out.printf("³¯Â¥           ±ÇÁ¾   ¿¬·É±¸ºĞ ¼ö·®     °¡°İ  ¿ì´ë»çÇ×\n");
+		System.out.printf("ë‚ ì§œ           ê¶Œì¢…   ì—°ë ¹êµ¬ë¶„ ìˆ˜ëŸ‰     ê°€ê²©  ìš°ëŒ€ì‚¬í•­\n");
 		String line_data[] = temp.split("\n");
 		String line_comma_data[];
 		for (int i = 0; i < line_data.length; i++) {
@@ -23,22 +23,22 @@ public class OutputClass {
 		System.out.printf("---------------------------------------------\n");
 	}
 	
-	public void printTICKETDATA2(int result[][]) { // ±ÇÁ¾º° ÆÇ¸Å ÇöÈ²
-		System.out.printf("\n=============== ±ÇÁ¾ º° ÆÇ¸ÅÇöÈ² ===============\n");
-		System.out.printf("ÁÖ°£±Ç ÃÑ %s¸Å\n", result[0][0]);
-		System.out.printf("À¯¾Æ %s¸Å, ¾î¸°ÀÌ %s¸Å, Ã»¼Ò³â %s¸Å, ¾î¸¥ %s¸Å, ³ëÀÎ %s¸Å\n",
+	public void printTICKETDATA2(int result[][]) { // ê¶Œì¢…ë³„ íŒë§¤ í˜„í™©
+		System.out.printf("\n=============== ê¶Œì¢… ë³„ íŒë§¤í˜„í™© ===============\n");
+		System.out.printf("ì£¼ê°„ê¶Œ ì´ %së§¤\n", result[0][0]);
+		System.out.printf("ìœ ì•„ %së§¤, ì–´ë¦°ì´ %së§¤, ì²­ì†Œë…„ %së§¤, ì–´ë¥¸ %së§¤, ë…¸ì¸ %së§¤\n",
 				result[0][1], result[0][2], result[0][3], result[0][4], result[0][5]);
-		System.out.printf("ÁÖ°£±Ç ¸ÅÃâ : %s¿ø\n\n", result[0][6]);
-		System.out.printf("¾ß°£±Ç ÃÑ %s¸Å\n", result[1][0]);
-		System.out.printf("À¯¾Æ %s¸Å, ¾î¸°ÀÌ %s¸Å, Ã»¼Ò³â %s¸Å, ¾î¸¥ %s¸Å, ³ëÀÎ %s¸Å\n",
+		System.out.printf("ì£¼ê°„ê¶Œ ë§¤ì¶œ : %sì›\n\n", result[0][6]);
+		System.out.printf("ì•¼ê°„ê¶Œ ì´ %së§¤\n", result[1][0]);
+		System.out.printf("ìœ ì•„ %së§¤, ì–´ë¦°ì´ %së§¤, ì²­ì†Œë…„ %së§¤, ì–´ë¥¸ %së§¤, ë…¸ì¸ %së§¤\n",
 				result[1][1], result[1][2], result[1][3], result[1][4], result[1][5]);
-		System.out.printf("¾ß°£±Ç ¸ÅÃâ : %s¿ø\n", result[1][6]);
+		System.out.printf("ì•¼ê°„ê¶Œ ë§¤ì¶œ : %sì›\n", result[1][6]);
 		System.out.printf("---------------------------------------------\n");
 	
 	}
 	
 	public void saveTICKETDATA(int result[][]) throws IOException {
-		//±¸ºĞ,ÁÖ°£±Ç,¾ß°£±Ç
+		//êµ¬ë¶„,ì£¼ê°„ê¶Œ,ì•¼ê°„ê¶Œ
 		FileWriter fw1 = new FileWriter(ConstValueClass.PATH3);
 		String text = "";
 		int baby_day = result[0][1], baby_night = result[1][1];
@@ -64,14 +64,14 @@ public class OutputClass {
 	public void printDAYDATA1(HashSet<String> sellday, int date_price_arr[]) { 
 		Iterator<String> iter = sellday.iterator();
 		int count = 0;
-		System.out.printf("\n=============== ÀÏÀÚº° ¸ÅÃâ ÇöÈ² ===============\n");
+		System.out.printf("\n=============== ì¼ìë³„ ë§¤ì¶œ í˜„í™© ===============\n");
 		while (iter.hasNext()) {
-			System.out.printf("%s : ÃÑ ¸ÅÃâ\t%s¿ø\n",iter.next(), date_price_arr[count]);
+			System.out.printf("%s : ì´ ë§¤ì¶œ\t%sì›\n",iter.next(), date_price_arr[count]);
 			count++;
 		}
 	}
 	
-	public void saveDAYDATA1(HashSet<String> sellday, int date_price_arr[]) throws IOException { // ÀÏÀÚº°  : ÃÑ ¸ÅÃâ -> CSVÀúÀå
+	public void saveDAYDATA1(HashSet<String> sellday, int date_price_arr[]) throws IOException { // ì¼ìë³„  : ì´ ë§¤ì¶œ -> CSVì €ì¥
 		FileWriter fw = new FileWriter(ConstValueClass.PATH2);
 		Iterator<String> iter = sellday.iterator();
 		int count = 0;
@@ -87,13 +87,13 @@ public class OutputClass {
 	}
 	
 	public void printDAYDATA2(int date_dc_count_arr []) {
-		System.out.printf("\n============= ¿ì´ë±Ç ÆÇ¸Å ÇöÈ² =============\n");
-		System.out.printf("ÃÑ ÆÇ¸Å Æ¼ÄÏ¼ö :     %s¸Å\n", date_dc_count_arr[0]);
-		System.out.printf("¿ì´ë ¾øÀ½      :     %s¸Å\n", date_dc_count_arr[1]);
-		System.out.printf("Àå¾ÖÀÎ         :     %s¸Å\n", date_dc_count_arr[2]);
-		System.out.printf("±¹°¡À¯°øÀÚ     :     %s¸Å\n", date_dc_count_arr[3]);
-		System.out.printf("´ÙÀÚ³à         :     %s¸Å\n", date_dc_count_arr[4]);
-		System.out.printf("ÀÓ»êºÎ         :     %s¸Å\n", date_dc_count_arr[5]);
+		System.out.printf("\n============= ìš°ëŒ€ê¶Œ íŒë§¤ í˜„í™© =============\n");
+		System.out.printf("ì´ íŒë§¤ í‹°ì¼“ìˆ˜ :     %së§¤\n", date_dc_count_arr[0]);
+		System.out.printf("ìš°ëŒ€ ì—†ìŒ      :     %së§¤\n", date_dc_count_arr[1]);
+		System.out.printf("ì¥ì• ì¸         :     %së§¤\n", date_dc_count_arr[2]);
+		System.out.printf("êµ­ê°€ìœ ê³µì     :     %së§¤\n", date_dc_count_arr[3]);
+		System.out.printf("ë‹¤ìë…€         :     %së§¤\n", date_dc_count_arr[4]);
+		System.out.printf("ì„ì‚°ë¶€         :     %së§¤\n", date_dc_count_arr[5]);
 		System.out.printf("\n===========================================\n");
 		
 	}

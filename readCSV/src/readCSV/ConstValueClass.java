@@ -5,9 +5,9 @@ public class ConstValueClass {
 	public static String PATH1 = "C:\\Users\\kmj\\eclipse-workspace\\advance\\Report.csv";
 	public static String PATH2 = "PerDaySellamount.csv";
 	public static String PATH3 = "PerTicketSales.csv";
-	public static String INFANT = "¿Øæ∆", CHILDREN = "æÓ∏∞¿Ã", JUVENILE = "√ªº“≥‚",
-			ADULT_PEOPLE = "æÓ∏•", OLD_PEOPLE = "≥Î¿Œ", TOTAL_NUM = "«’∞Ë", TOTAL_SELL = "∏≈√‚";
-	public static String TICKET_DAY = "¡÷∞£±«", TICKET_NIGHT = "æﬂ∞£±«", TICKET_SELECT = "±∏∫–",
-			SELL_DAY = "¿œ¿⁄", SELL_AMOUNT = "√— ∏≈√‚";
+	public static String INFANT = "Ïú†ÏïÑ", CHILDREN = "Ïñ¥Î¶∞Ïù¥", JUVENILE = "Ï≤≠ÏÜåÎÖÑ",
+			ADULT_PEOPLE = "Ïñ¥Î•∏", OLD_PEOPLE = "ÎÖ∏Ïù∏", TOTAL_NUM = "Ìï©Í≥Ñ", TOTAL_SELL = "Îß§Ï∂ú";
+	public static String TICKET_DAY = "Ï£ºÍ∞ÑÍ∂å", TICKET_NIGHT = "ÏïºÍ∞ÑÍ∂å", TICKET_SELECT = "Íµ¨Î∂Ñ",
+			SELL_DAY = "ÏùºÏûê", SELL_AMOUNT = "Ï¥ù Îß§Ï∂ú";
 	
 }

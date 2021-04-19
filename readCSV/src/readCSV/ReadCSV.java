@@ -30,10 +30,10 @@ public class ReadCSV {
 		int total_price = 0;
 		int total_price_night = 0;
 		while ((line = reader.readLine()) != null) {
-			// [0]³¯Â¥  [1] ±ÇÁ¾  [2] ¿¬·É±¸ºĞ [3] ¼ö·® [4] °¡°İ [5] ¿ì´ë»çÇ×
+			// [0]ë‚ ì§œ  [1] ê¶Œì¢…  [2] ì—°ë ¹êµ¬ë¶„ [3] ìˆ˜ëŸ‰ [4] ê°€ê²© [5] ìš°ëŒ€ì‚¬í•­
 			if (count > 0) {
 				line_data = line.split(",");
-				// **** printTICKETDATA1¿¡ ³Ñ°ÜÁÖ±âÀ§ÇÏ¿© temp¿¡ csv ¶óÀÎº° Á¤º¸ ÀúÀå ****
+				// **** printTICKETDATA1ì— ë„˜ê²¨ì£¼ê¸°ìœ„í•˜ì—¬ tempì— csv ë¼ì¸ë³„ ì •ë³´ ì €ì¥ ****
 				for (int i = 0; i < line_data.length; i++) {
 					if (i == (line_data.length -1)) {
 						temp += line_data[i] + "\n";
@@ -41,10 +41,10 @@ public class ReadCSV {
 						temp += line_data[i] +",";
 					}
 				}
-				// **** ±ÇÁ¾ º° ÆÇ¸ÅÇöÈ² Åë°è¸¦ À§ÇÑ parsing ****
+				// **** ê¶Œì¢… ë³„ íŒë§¤í˜„í™© í†µê³„ë¥¼ ìœ„í•œ parsing ****
 				if (Integer.parseInt(line_data[1]) == 1) {
 					
-					ticketday += Integer.parseInt(line_data[3]); // ÁÖ°£±Ç ÃÑ Æ¼ÄÏ¼ö
+					ticketday += Integer.parseInt(line_data[3]); // ì£¼ê°„ê¶Œ ì´ í‹°ì¼“ìˆ˜
 
 					if (Integer.parseInt(line_data[2]) == 1) {
 						baby += Integer.parseInt(line_data[3]);
@@ -61,7 +61,7 @@ public class ReadCSV {
 					total_price += Integer.parseInt(line_data[4]);
 
 				} else if (Integer.parseInt(line_data[1]) == 2) {
-					ticketnight += Integer.parseInt(line_data[3]); // ¾ß°£±Ç ÃÑ Æ¼ÄÏ¼ö
+					ticketnight += Integer.parseInt(line_data[3]); // ì•¼ê°„ê¶Œ ì´ í‹°ì¼“ìˆ˜
 
 					if (Integer.parseInt(line_data[2]) == 1) {
 						baby_night += Integer.parseInt(line_data[3]);
@@ -81,7 +81,7 @@ public class ReadCSV {
 			}
 			count ++;
 		}
-		out.printTICKETDATA1(temp); // ±ÇÁ¾º° ÄÜ¼Ö Ãâ·Â
+		out.printTICKETDATA1(temp); // ê¶Œì¢…ë³„ ì½˜ì†” ì¶œë ¥
 		reader.close();
 		for (int i = 0; i < result.length; i++) {
 			for (int j = 0; j < result[0].length; j++) {
@@ -169,9 +169,9 @@ public class ReadCSV {
 					date_dc_count_arr[5] += Integer.parseInt(line_data[3]);
 				}
 				for (int i = 0; i < line_data.length; i++) {
-					if ( i == 0 ) { // ³¯Â¥
+					if ( i == 0 ) { // ë‚ ì§œ
 						temp += line_data[i] + ",";
-					} else if (i == 4) { // °¡°İ
+					} else if (i == 4) { // ê°€ê²©
 						temp += line_data[i] + "\n";
 					}
 				}
@@ -182,7 +182,7 @@ public class ReadCSV {
 		String temp_arr [] = temp.split("\n");
 		String temp_comma_arr[];
 		
-		//[0] ³¯Â¥ , [1] °¡°İ
+		//[0] ë‚ ì§œ , [1] ê°€ê²©
 		int cnt = 0;
 		String key = "";
 		while (iter.hasNext()) {
@@ -198,9 +198,9 @@ public class ReadCSV {
 			cnt++;
 		}
 		
-		out.printDAYDATA1(sellday, date_price_arr); // ÀÏÀÚº° ¸ÅÃâ ÇöÈ² ÄÜ¼Ö Ãâ·Â
-		out.printDAYDATA2(date_dc_count_arr); // ¿ì´ë ÆÇ¸Å ÇöÈ² ÄÜ¼Ö Ãâ·Â
-		out.saveDAYDATA1(sellday, date_price_arr); // ÀÏÀÚº° ¸ÅÃâ ÇöÈ² csvÀúÀå
+		out.printDAYDATA1(sellday, date_price_arr); // ì¼ìë³„ ë§¤ì¶œ í˜„í™© ì½˜ì†” ì¶œë ¥
+		out.printDAYDATA2(date_dc_count_arr); // ìš°ëŒ€ íŒë§¤ í˜„í™© ì½˜ì†” ì¶œë ¥
+		out.saveDAYDATA1(sellday, date_price_arr); // ì¼ìë³„ ë§¤ì¶œ í˜„í™© csvì €ì¥
 		reader1.close();
 		
 
