@@ -205,9 +205,7 @@ public class RunClass {
 			break;
 		default :
 			break;
-		}
-		
-		
+		}	
 		cusInfoArr.add(cusInfo);
 		
 	}
